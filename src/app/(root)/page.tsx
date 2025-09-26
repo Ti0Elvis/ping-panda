@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Fragment } from "react";
 import { Icons } from "@/components/icons";
-import { Header } from "./components/header";
 import { Heading } from "@/components/heading";
 import { CheckIcon, StarIcon } from "lucide-react";
 import { ShinyButton } from "@/components/shiny-button";
@@ -30,7 +29,6 @@ const code_snippet = `await fetch("http://localhost:3000/api/v1/events", {
 export default function Page() {
   return (
     <Fragment>
-      <Header />
       {/* Hero Section */}
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="text-center">
