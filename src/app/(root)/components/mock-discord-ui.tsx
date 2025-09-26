@@ -88,7 +88,7 @@ export function MockDiscordUI({ children }: Readonly<Props>) {
           </div>
         </div>
         <div className="p-2 bg-[#292b2f] flex items-center">
-          <div className="size-8 rounded-full bg-brand-700 mr-2" />
+          <div className="size-8 rounded-full bg-primary mr-2" />
           <div className="flex-1">
             <p className="text-sm font-medium text-white">You</p>
             <p className="text-xs text-[#b9bbbe] flex items-center">

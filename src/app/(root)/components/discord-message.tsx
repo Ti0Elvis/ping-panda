@@ -46,7 +46,7 @@ export function DiscordMessage({
       <div className="w-full max-w-xl">
         <div className="flex items-center">
           <p className="font-semibold text-white">{props.username}</p>
-          <span className="ml-2 px-1.5 py-0.5 text-xs font-semibold bg-brand-600 text-white rounded">
+          <span className="ml-2 px-1.5 py-0.5 text-xs font-semibold bg-primary text-white rounded">
             APP
           </span>
           <span className="text-gray-400 ml-1.5 text-xs font-normal">

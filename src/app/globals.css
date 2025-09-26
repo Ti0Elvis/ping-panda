@@ -2,30 +2,26 @@
 @import "tw-animate-css";
 @import "@clerk/themes/shadcn.css";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-brand-25: var(--brand-25);
-  --color-brand-50: var(--brand-50);
-  --color-brand-100: var(--brand-100);
-  --color-brand-200: var(--brand-200);
-  --color-brand-300: var(--brand-300);
-  --color-brand-400: var(--brand-400);
-  --color-brand-500: var(--brand-500);
-  --color-brand-600: var(--brand-600);
-  --color-brand-700: var(--brand-700);
-  --color-brand-800: var(--brand-800);
-  --color-brand-900: var(--brand-900);
-  --color-brand-950: var(--brand-950);
-  --color-discord-background: #36393f;
-  --color-discord-brand-color: #5865f2;
-  --color-discord-gray: #36393f;
-  --color-discord-text: #dcddde;
-  --color-discord-timestamp: #72767d;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -42,49 +38,101 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-discord-background: var(--discord-background);
+  --color-discord-brand-color: var(--discord-brand-color);
+  --color-discord-gray: var(--discord-gray);
+  --color-discord-text: var(--discord-text);
+  --color-discord-timestamp: var(--discord-timestamp);
 }
 
 :root {
-  --chart-5: oklch(0.623 0.274 256.65);
-  --chart-4: oklch(0.568 0.257 12.39);
-  --chart-3: oklch(0.722 0.177 164.57);
-  --chart-2: oklch(0.819 0.189 90.03);
-  --chart-1: oklch(0.624 0.214 264.18);
-  --ring: oklch(0.215 0.028 264.49);
-  --input: oklch(0.933 0.031 255.63);
-  --border: oklch(0.933 0.031 255.63);
-  --destructive-foreground: oklch(1 0 0);
-  --destructive: oklch(0.627 0.257 29.23);
-  --accent-foreground: oklch(0.215 0.028 264.49);
-  --accent: oklch(0.971 0.015 255.74);
-  --muted-foreground: oklch(0.215 0.028 264.49);
-  --muted: oklch(0.971 0.015 255.74);
-  --secondary-foreground: oklch(0.215 0.028 264.49);
-  --secondary: oklch(0.971 0.015 255.74);
-  --primary-foreground: oklch(1 0 0);
-  --primary: oklch(0.215 0.028 264.49);
-  --popover-foreground: oklch(0.215 0.028 264.49);
-  --popover: oklch(1 0 0);
-  --card-foreground: oklch(0.215 0.028 264.49);
+  --radius: 0.65rem;
+  --background: oklab(98.249% 0.00047 -0.0055);
+  --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
-  --foreground: oklch(0.215 0.028 264.49);
-  --background: oklch(1 0 0);
-  --discord-text: oklch(0.827 0.009 262.66);
-  --discord-gray: oklch(0.286 0.016 256.78);
-  --discord-timestamp: oklch(0.517 0.011 261.27);
-  --discord-background: oklch(0.286 0.016 256.78);
-  --discord-brand-color: oklch(0.552 0.213 265.85);
-  --brand-950: oklch(0.212 0.082 270.21);
-  --brand-900: oklch(0.266 0.095 271.1);
-  --brand-800: oklch(0.338 0.102 272.15);
-  --brand-700: oklch(0.418 0.106 272.69);
-  --brand-600: oklch(0.517 0.097 271.87);
-  --brand-500: oklch(0.616 0.073 271.24);
-  --brand-400: oklch(0.7 0.051 270.79);
-  --brand-300: oklch(0.787 0.036 270.61);
-  --brand-200: oklch(0.871 0.023 270.57);
-  --brand-100: oklch(0.94 0.012 270.64);
-  --brand-50: oklch(0.971 0.007 270.61);
-  --brand-25: oklch(0.985 0.003 270.56);
-  --radius: 0.5rem;
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.623 0.214 259.815);
+  --primary-foreground: oklch(0.97 0.014 254.604);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.623 0.214 259.815);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.623 0.214 259.815);
+  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --discord-background: oklab(34.400999999999996% -0.00109 -0.01123);
+  --discord-brand-color: oklab(57.745000000000005% 0.01408 -0.20871);
+  --discord-gray: oklab(34.400999999999996% -0.00109 -0.01123);
+  --discord-text: oklab(89.706% -0.00066 -0.00172);
+  --discord-timestamp: oklab(56.474000000000004% -0.00169 -0.01175);
+}
+
+.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.546 0.245 262.881);
+  --primary-foreground: oklch(0.379 0.146 265.522);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.546 0.245 262.881);
+  --sidebar-primary-foreground: oklch(0.379 0.146 265.522);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --discord-background: oklab(34.400999999999996% -0.00109 -0.01123);
+  --discord-brand-color: oklab(57.745000000000005% 0.01408 -0.20871);
+  --discord-gray: oklab(34.400999999999996% -0.00109 -0.01123);
+  --discord-text: oklab(89.706% -0.00066 -0.00172);
+  --discord-timestamp: oklab(56.474000000000004% -0.00169 -0.01175);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

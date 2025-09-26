@@ -14,7 +14,7 @@ export async function Header() {
       <MaxWidthWrapper>
         <nav className="flex h-16 items-center justify-between">
           <Link href="/" className="flex z-40 font-semibold">
-            Ping<span className="text-brand-700">Panda</span>
+            Ping<span className="text-primary">Panda</span>
           </Link>
           <div className="h-full flex items-center gap-2">
             {user ? (
