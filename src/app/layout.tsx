@@ -2,6 +2,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import { QueryProvider } from "@/providers/query.provider";
 
 const roboto = Roboto({
@@ -21,10 +22,12 @@ interface Props {
 
 export default function Layout({ children }: Readonly<Props>) {
   return (
-    <html lang="en">
-      <body className={cn(roboto.className)}>
-        <QueryProvider>{children}</QueryProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={cn(roboto.className)}>
+          <QueryProvider>{children}</QueryProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
