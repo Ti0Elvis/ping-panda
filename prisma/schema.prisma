@@ -8,6 +8,90 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-model Example {
-  id Int @id @default(autoincrement())
+enum Plan {
+  FREE
+  PRO
+}
+
+model User {
+  // User Personal Information
+  id          String  @id @default(cuid())
+  discord_id  String?
+  external_id String? @unique
+  email       String  @unique
+
+  // User Subscription Details
+  quota_limit Int
+  plan        Plan   @default(FREE)
+  api_key     String @unique @default(cuid())
+
+  // Relations
+  events_categories EventCategory[]
+  events            Event[]
+  quotas            Quota[]
+
+  // Timestamps
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@index([email, api_key])
+}
+
+model EventCategory {
+  id    String  @id @default(cuid())
+  name  String
+  color Int
+  emoji String?
+
+  // Relations
+  user_id String
+  user    User    @relation(fields: [user_id], references: [id])
+  events  Event[]
+
+  // Timestamps
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@unique([name, user_id])
+}
+
+enum DeliveryStatus {
+  PENDING
+  DELIVERED
+  FAILED
+}
+
+model Event {
+  id                String         @id @default(cuid())
+  name              String
+  formatted_message String
+  fields            Json
+  delivery_status   DeliveryStatus @default(PENDING)
+
+  // Relations
+  user_id           String
+  user              User           @relation(fields: [user_id], references: [id])
+  event_category_id String?
+  event_category    EventCategory? @relation(fields: [event_category_id], references: [id])
+
+  // Timestamps
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model Quota {
+  id    String @id @default(cuid())
+  year  Int
+  month Int
+  count Int    @default(0)
+
+  // Relations
+  user_id String
+  user    User   @relation(fields: [user_id], references: [id])
+
+  // Timestamps
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }
