@@ -6,7 +6,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 
-export async function Header() {
+export async function RootHeader() {
   const user = await currentUser();
 
   return (
