@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { shadcn } from "@clerk/themes";
 import { Roboto } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner";
 import { QueryProvider } from "@/providers/query.provider";
 
 const roboto = Roboto({
@@ -30,6 +31,7 @@ export default function Layout({ children }: Readonly<Props>) {
       <html lang="en">
         <body className={cn(roboto.className)}>
           <QueryProvider>{children}</QueryProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
