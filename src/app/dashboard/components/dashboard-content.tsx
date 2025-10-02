@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { client } from "@/lib/client";
 import { CategoryCard } from "./category-card";
 import { useQuery } from "@tanstack/react-query";
+import DashboardEmptyState from "./dashboard-empty-state";
 import { LoadingSpinner } from "@/components/loading-spinner";
 
 export function DashboardContent() {
@@ -24,11 +25,7 @@ export function DashboardContent() {
   }
 
   if (query.data === undefined || query.data.length === 0) {
-    return (
-      <div className="w-full h-full flex items-center justify-center">
-        <p className="text-gray-500">No event categories found.</p>
-      </div>
-    );
+    return <DashboardEmptyState />;
   }
 
   return (
