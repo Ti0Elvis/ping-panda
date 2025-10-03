@@ -46,7 +46,7 @@ export function CreateCategoryDialog() {
 
   const mutation = useMutation({
     mutationFn: async (data: z.infer<typeof schema>) => {
-      await client.eventCategory.createEventCategory.$post({ ...data });
+      await client.category.createEventCategory.$post({ ...data });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user-event-categories"] });

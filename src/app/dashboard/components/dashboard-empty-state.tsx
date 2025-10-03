@@ -10,7 +10,7 @@ export default function DashboardEmptyState() {
 
   const mutation = useMutation({
     mutationFn: async () => {
-      await client.eventCategory.insertQuickstartCategories.$post();
+      await client.category.insertQuickstartCategories.$post();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user-event-categories"] });

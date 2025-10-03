@@ -10,7 +10,7 @@ export function DashboardContent() {
   const query = useQuery({
     queryKey: ["user-event-categories"],
     queryFn: async () => {
-      const response = await client.eventCategory.getEventCategories.$get();
+      const response = await client.category.getEventCategories.$get();
       const { categories } = await response.json();
       return categories;
     },

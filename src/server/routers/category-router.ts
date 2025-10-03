@@ -4,7 +4,7 @@ import { startOfMonth } from "date-fns";
 import { parseColor } from "@/lib/utils";
 import { j, privateProcedure } from "../jstack";
 
-export const eventCategoryRouter = j.router({
+export const categoryRouter = j.router({
   getEventCategories: privateProcedure.query(async ({ c, ctx }) => {
     const now = new Date();
     const firstDayOfMonth = startOfMonth(now);
@@ -107,6 +107,7 @@ export const eventCategoryRouter = j.router({
 
       return c.json({ eventCategory });
     }),
+
   insertQuickstartCategories: privateProcedure.mutation(async ({ ctx, c }) => {
     const categories = await db.eventCategory.createMany({
       data: [

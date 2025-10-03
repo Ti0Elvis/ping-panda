@@ -47,7 +47,7 @@ export function CategoryCard(category: Readonly<Props>) {
 
   const mutation = useMutation({
     mutationFn: async (name: string) => {
-      await client.eventCategory.deleteEventCategory.$post({ name });
+      await client.category.deleteEventCategory.$post({ name });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["user-event-categories"] });
