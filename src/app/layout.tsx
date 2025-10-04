@@ -9,7 +9,7 @@ import { QueryProvider } from "@/providers/query.provider";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
