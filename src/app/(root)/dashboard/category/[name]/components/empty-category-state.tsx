@@ -38,7 +38,7 @@ export function EmptyCategoryState() {
   }, [polling_query.data?.has_events, router]);
 
   return (
-    <Card>
+    <Card className="max-w-2xl">
       <CardHeader>
         <h2>Create your first {category.name} event</h2>
         <p className="text-sm text-muted-foreground">
@@ -62,6 +62,7 @@ export function EmptyCategoryState() {
             padding: "1rem",
             fontSize: "0.875rem",
             backgroundColor: "#1e1e1e",
+            borderRadius: "0 0 0.375rem 0.375rem",
           }}>
           {codeSnippet}
         </SyntaxHighlighter>

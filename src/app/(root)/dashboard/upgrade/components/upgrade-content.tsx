@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { client } from "@/lib/client";
 import type { Plan } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import { BarChartIcon } from "lucide-react";
+import { BarChart2Icon, BarChartIcon } from "lucide-react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
@@ -50,7 +50,7 @@ export function UpgradeContent({ plan }: Readonly<Props>) {
         <Card className="border-2 border-primary">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <h2>Total Events</h2>
+              <h2 className="font-medium">Total Events</h2>
               <BarChartIcon className="size-4 text-muted-foreground" />
             </div>
           </CardHeader>
@@ -67,8 +67,8 @@ export function UpgradeContent({ plan }: Readonly<Props>) {
         <Card className="border-2 border-primary">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <h2>Event Categories</h2>
-              <BarChartIcon className="size-4 text-muted-foreground" />
+              <h2 className="font-medium">Event Categories</h2>
+              <BarChart2Icon className="size-4 text-muted-foreground" />
             </div>
           </CardHeader>
           <CardContent>

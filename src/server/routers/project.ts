@@ -1,3 +1,4 @@
+import z from "zod";
 import { db } from "@/lib/db";
 import { j, private_procedure } from "../jstack";
 import { addMonths, startOfMonth } from "date-fns";
@@ -35,4 +36,18 @@ export const project_router = j.router({
       reset_date,
     });
   }),
+
+  setDiscordID: private_procedure
+    .input(z.object({ discord_id: z.string().max(20) }))
+    .mutation(async ({ c, ctx, input }) => {
+      const { user } = ctx;
+      const { discord_id } = input;
+
+      await db.user.update({
+        where: { id: user.id },
+        data: { discord_id },
+      });
+
+      return c.json({ success: true });
+    }),
 });
