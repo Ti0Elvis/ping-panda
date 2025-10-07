@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { parseColor } from "@/lib/utils";
 import { j, private_procedure } from "../jstack";
 import { HTTPException } from "hono/http-exception";
+import { FREE_QUOTA, PRO_QUOTA } from "@/lib/constants";
 import { startOfDay, startOfMonth, startOfWeek } from "date-fns";
 import { EVENT_CATEGORY_NAME_VALIDATOR } from "@/lib/validators";
 
@@ -105,6 +106,21 @@ export const event_category_router = j.router({
       if (event_category !== null) {
         throw new HTTPException(400, {
           message: "There is a category with this name",
+        });
+      }
+
+      const categories = await db.eventCategory.findMany({
+        where: { user_id: user.id },
+      });
+
+      const max_categories =
+        user.plan === "PRO"
+          ? PRO_QUOTA.max_event_categories
+          : FREE_QUOTA.max_event_categories;
+
+      if (categories.length >= max_categories - 1) {
+        throw new HTTPException(429, {
+          message: "You have reached the maximum number of event categories",
         });
       }
 

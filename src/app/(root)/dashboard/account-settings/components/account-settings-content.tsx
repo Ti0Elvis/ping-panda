@@ -40,9 +40,12 @@ export function AccountSettingsContent({ discord_id }: Readonly<Props>) {
             placeholder="Enter your Discord ID"
           />
         </div>
-        <p className="mt-2 text-sm/6 text-gray-600">
+        <p className="mt-2 text-sm">
           Don't know how to find your Discord ID?{" "}
-          <Link href="#" className="text-brand-600 hover:text-brand-500">
+          <Link
+            href="https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID"
+            className="text-primary hover:underline"
+            target="_blank">
             Learn how to obtain it here
           </Link>
           .

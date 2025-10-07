@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         ? FREE_QUOTA.max_events_per_month
         : PRO_QUOTA.max_events_per_month;
 
-    if (quota && quota.count >= quota_limit) {
+    if (quota !== null && quota.count >= quota_limit) {
       return NextResponse.json(
         {
           message:

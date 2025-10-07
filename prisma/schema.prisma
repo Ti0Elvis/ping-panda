@@ -21,9 +21,8 @@ model User {
   email       String  @unique
 
   // User Subscription Details
-  quota_limit Int
-  plan        Plan   @default(FREE)
-  api_key     String @unique @default(cuid())
+  plan    Plan   @default(FREE)
+  api_key String @unique @default(cuid())
 
   // Relations
   events_categories EventCategory[]
