@@ -45,7 +45,7 @@ model EventCategory {
 
   // Relations
   user_id String
-  user    User    @relation(fields: [user_id], references: [id])
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
   events  Event[]
 
   // Timestamps
@@ -70,9 +70,9 @@ model Event {
 
   // Relations
   user_id           String
-  user              User           @relation(fields: [user_id], references: [id])
-  event_category_id String?
-  event_category    EventCategory? @relation(fields: [event_category_id], references: [id])
+  user              User          @relation(fields: [user_id], references: [id])
+  event_category_id String
+  event_category    EventCategory @relation(fields: [event_category_id], references: [id], onDelete: Cascade)
 
   // Timestamps
   updatedAt DateTime @updatedAt
@@ -89,7 +89,7 @@ model Quota {
 
   // Relations
   user_id String
-  user    User   @relation(fields: [user_id], references: [id])
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   // Timestamps
   updatedAt DateTime @updatedAt

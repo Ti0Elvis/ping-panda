@@ -8,7 +8,7 @@ export default function Page() {
   const intent = searchParams.get("intent");
 
   return (
-    <MaxWidthWrapper className="w-full min-h-[calc(100vh-4rem)] flex items-center justify-center">
+    <MaxWidthWrapper className="w-full h-screen flex items-center justify-center">
       <SignIn
         forceRedirectUrl={intent ? `/dashboard?intent=${intent}` : "/dashboard"}
       />

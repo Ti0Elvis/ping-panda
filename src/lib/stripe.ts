@@ -10,6 +10,8 @@ interface Props {
   user_id: string;
 }
 
+// This is a simple payment with Stripe Checkout example.
+// In this example, we create a Checkout Session for a one-time payment for us upgrading to the Pro plan.
 export async function createCheckoutSession({ email, user_id }: Props) {
   const session = await stripe.checkout.sessions.create({
     line_items: [

@@ -11,15 +11,14 @@ type Props = PropsWithChildren<ComponentProps<"h1">>;
 
 export function Heading({ children, className, ...props }: Readonly<Props>) {
   return (
-    <h1
+    <h2
       className={cn(
-        "text-4xl sm:text-5xl text-pretty font-semibold tracking-tight text-zinc-800",
+        "text-3xl sm:text-4xl text-pretty font-semibold tracking-tight text-zinc-800",
         eb_garamond.className,
         className
       )}
-      {...props}
-    >
+      {...props}>
       {children}
-    </h1>
+    </h2>
   );
 }

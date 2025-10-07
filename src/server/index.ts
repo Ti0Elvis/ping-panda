@@ -1,8 +1,8 @@
 import { j } from "./jstack";
-import { authRouter } from "./routers/auth-router";
-import { paymentRouter } from "./routers/payment-router";
-import { projectRouter } from "./routers/project-router";
-import { categoryRouter } from "./routers/category-router";
+import { auth_router } from "./routers/auth";
+import { payment_router } from "./routers/payment";
+import { project_router } from "./routers/project";
+import { event_category_router } from "./routers/event-category";
 
 const api = j
   .router()
@@ -11,10 +11,10 @@ const api = j
   .onError(j.defaults.errorHandler);
 
 const appRouter = j.mergeRouters(api, {
-  auth: authRouter,
-  category: categoryRouter,
-  payment: paymentRouter,
-  project: projectRouter,
+  auth: auth_router,
+  event_category: event_category_router,
+  payment: payment_router,
+  project: project_router,
 });
 
 export type AppRouter = typeof appRouter;

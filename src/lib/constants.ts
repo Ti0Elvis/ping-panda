@@ -1,3 +1,5 @@
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export const COLOR_OPTIONS = [
   "#FF6B6B", // bg-[#FF6B6B] ring-[#FF6B6B] Bright Red
   "#4ECDC4", // bg-[#4ECDC4] ring-[#4ECDC4] Teal
@@ -25,11 +27,11 @@ export const EMOJI_OPTIONS = [
 ];
 
 export const FREE_QUOTA = {
-  maxEventsPerMonth: 100,
-  maxEventCategories: 3,
+  max_events_per_month: 100,
+  max_event_categories: 3,
 } as const;
 
 export const PRO_QUOTA = {
-  maxEventsPerMonth: 1000,
-  maxEventCategories: 10,
+  max_events_per_month: 1000,
+  max_event_categories: 10,
 } as const;

@@ -12,6 +12,7 @@ export const Icons = {
       />
     </svg>
   ),
+
   verificationBadge: (props: LucideProps) => {
     return (
       <svg

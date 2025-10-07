@@ -31,7 +31,7 @@ export default function Layout({ children }: Readonly<Props>) {
       <html lang="en">
         <body className={cn(roboto.className)}>
           <QueryProvider>{children}</QueryProvider>
-          <Toaster />
+          <Toaster richColors />
         </body>
       </html>
     </ClerkProvider>

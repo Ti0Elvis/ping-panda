@@ -9,17 +9,19 @@ interface Env {
 
 export const j = jstack.init<Env>();
 
-const authMiddleware = j.middleware(async ({ c, next }) => {
-  const header = c.req.header("Authorization");
+const auth_middleware = j.middleware(async ({ c, next }) => {
+  const auth_header = c.req.header("Authorization");
 
-  if (header !== undefined) {
-    const api_key = header.split(" ")[1];
+  if (auth_header !== undefined) {
+    const api_key = auth_header.split(" ")[1];
 
     const user = await db.user.findUnique({
       where: { api_key },
     });
 
-    if (user !== null) return next({ user });
+    if (user !== null) {
+      return next({ user });
+    }
   }
 
   const auth = await currentUser();
@@ -39,5 +41,5 @@ const authMiddleware = j.middleware(async ({ c, next }) => {
   return next({ user });
 });
 
-export const publicProcedure = j.procedure;
-export const privateProcedure = publicProcedure.use(authMiddleware);
+export const public_procedure = j.procedure;
+export const private_procedure = public_procedure.use(auth_middleware);

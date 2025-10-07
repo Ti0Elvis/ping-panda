@@ -3,16 +3,11 @@ import { db } from "@/lib/db";
 import { DiscordClient } from "@/lib/discord-client";
 import { NextRequest, NextResponse } from "next/server";
 import { FREE_QUOTA, PRO_QUOTA } from "@/lib/constants";
+import { EVENT_CATEGORY_NAME_VALIDATOR } from "@/lib/validators";
 
 const REQUEST_VALIDATOR = z
   .object({
-    category: z
-      .string()
-      .min(1, "Category name is required.")
-      .regex(
-        /^[a-zA-Z0-9-]+$/,
-        "Category name can only contain letters, numbers or hypens."
-      ),
+    category: EVENT_CATEGORY_NAME_VALIDATOR,
     fields: z
       .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
       .optional(),
@@ -68,8 +63,8 @@ export async function POST(request: NextRequest) {
 
     const quota_limit =
       user.plan === "FREE"
-        ? FREE_QUOTA.maxEventsPerMonth
-        : PRO_QUOTA.maxEventsPerMonth;
+        ? FREE_QUOTA.max_events_per_month
+        : PRO_QUOTA.max_events_per_month;
 
     if (quota && quota.count >= quota_limit) {
       return NextResponse.json(
