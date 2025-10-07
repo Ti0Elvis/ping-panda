@@ -31,7 +31,7 @@ export function CategoryTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
-  const { category, events_query, ...context } = useCategoryContext();
+  const { events_query, ...context } = useCategoryContext();
 
   const columns: Array<ColumnDef<Event>> = useMemo(
     () => [
