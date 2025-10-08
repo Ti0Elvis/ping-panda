@@ -10,6 +10,7 @@ export default function Page() {
   return (
     <MaxWidthWrapper className="w-full h-screen flex items-center justify-center">
       <SignIn
+        redirectUrl={intent ? `/dashboard?intent=${intent}` : "/dashboard"}
         fallbackRedirectUrl={
           intent ? `/dashboard?intent=${intent}` : "/dashboard"
         }

@@ -5,8 +5,8 @@ type Props = LucideProps;
 export function BackgroundPattern(props: Readonly<Props>) {
   return (
     <svg
-      width="768"
-      height="736"
+      width="750"
+      height="725"
       viewBox="0 0 768 736"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -26,11 +26,15 @@ export default async function Page({ searchParams }: Readonly<Props>) {
     where: { external_id: auth.id },
   });
 
-  if (user === null) {
-    return redirect("/callback");
-  }
-
   const intent = (await searchParams).intent;
+
+  if (user === null) {
+    if (intent === "upgrade") {
+      redirect("/callback?intent=upgrade");
+    } else {
+      redirect("/callback");
+    }
+  }
 
   if (intent === "upgrade") {
     const session = await createCheckoutSession({
