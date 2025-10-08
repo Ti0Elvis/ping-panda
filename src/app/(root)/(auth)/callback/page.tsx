@@ -18,7 +18,7 @@ export default function Page() {
       return await response.json();
     },
     refetchInterval: (query) => {
-      return query.state.data?.isSynced ? false : 1000;
+      return query.state.data?.isSynced ? false : 5000;
     },
   });
 
