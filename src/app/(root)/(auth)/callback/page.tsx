@@ -24,7 +24,9 @@ export default function Page() {
 
   useEffect(() => {
     if (query.data?.isSynced === true) {
-      router.push("/dashboard");
+      setTimeout(() => {
+        router.push("/dashboard");
+      }, 2500);
     }
   }, [query.data, router]);
 
