@@ -56,7 +56,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <section className="w-full h-screen flex flex-col">
-      <DashboardHeader title={`${category.emoji} ${category.name} events`} />
+      <DashboardHeader
+        title={`${category.emoji || "📂"} ${category.name} events`}
+      />
       <div className="flex-1 p-6 sm:p-8 flex flex-col gap-8 overflow-y-auto">
         <CategoryProvider category={category} has_events={has_events}>
           <CategoryContent />
